@@ -1,0 +1,8 @@
+FROM alpine:3.12
+COPY . app-files/
+COPY app-files show-user.sh app-files/
+RUN adduser -D pcap && chown -R pcap app-files/
+USER pcap
+WORKDIR /app-files
+RUN chmod 500 show-user.sh
+ENTRYPOINT ["/bin/sh","show-user.sh"]

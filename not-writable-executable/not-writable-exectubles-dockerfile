@@ -1,0 +1,8 @@
+FROM alpine:3.12
+COPY app-files/ /app 
+
+# set the permission to that user can execute the script
+RUN chmod 755 /app/test.sh
+RUN adduser -D app
+USER app
+ENTRYPOINT /app/test.sh

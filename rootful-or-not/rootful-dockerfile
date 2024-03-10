@@ -1,0 +1,6 @@
+FROM alpine:3.12
+COPY . app-files/
+COPY app-files show-user.sh app-files/
+WORKDIR /app-files
+RUN chmod 500 show-user.sh
+ENTRYPOINT ["/bin/sh","show-user.sh"]
