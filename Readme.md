@@ -1,6 +1,6 @@
 # Apply Docker best practice 
 
-- Container image built as root
+- [Container image built as root](https://github.com/p-cap/dockering/blob/main/rootful-or-not/rootful-dockerfile)
 ``` 
 # without explicitly declaring the user, the user is ROOT
 FROM alpine:3.12
@@ -10,7 +10,7 @@ WORKDIR /app-files
 RUN chmod 500 show-user.sh
 ENTRYPOINT ["/bin/sh","show-user.sh"]
 ```
-- Container image built as a non-root user
+- [Container image built as a non-root user](https://github.com/p-cap/dockering/blob/main/rootful-or-not/not-rootful-deockerfile)
 ```
 FROM alpine:3.12
 COPY . app-files/
@@ -27,7 +27,7 @@ RUN chmod 500 show-user.sh
 ENTRYPOINT ["/bin/sh","show-user.sh"]
 ``` 
 
-- container not writable but executable
+- [container not writable but executable](https://github.com/p-cap/dockering/blob/main/not-writable-executable/not-writable-exectubles-dockerfile)
 ```
 FROM alpine:3.12
 COPY app-files/ /app
@@ -43,5 +43,5 @@ ENTRYPOINT /app/test.sh
 NOTE: remember, when copying the files from the host, you will carry-over the permissions originally set. 
 
 REF:
-Top 20 Dockerfile best practices
+Top 20 Dockerfile best practices \
 https://sysdig.com/blog/dockerfile-best-practices/
